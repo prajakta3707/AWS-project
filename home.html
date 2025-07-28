@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Fashion Store - Shop</title>
+  <style>
+    /* Reset and base */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background: #fafafa;
+      color: #333;
+      line-height: 1.5;
+    }
+
+    header {
+      background: #111;
+      padding: 1rem 2rem;
+      color: white;
+      font-weight: 700;
+      font-size: 1.5rem;
+      text-align: center;
+    }
+
+    nav {
+      background: #222;
+      padding: 0.8rem 2rem;
+      text-align: center;
+    }
+
+    nav a {
+      color: #ddd;
+      text-decoration: none;
+      margin: 0 1rem;
+      font-weight: 600;
+      font-size: 1rem;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #e63946;
+    }
+
+    main {
+      max-width: 1200px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 2rem;
+      color: #e63946;
+      font-weight: 700;
+      font-size: 2.5rem;
+    }
+
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 2rem;
+    }
+
+    .product-card {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .product-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 25px rgba(230, 57, 70, 0.3);
+    }
+
+    .product-image {
+      width: 100%;
+      height: 280px;
+      object-fit: cover;
+    }
+
+    .product-info {
+      padding: 1.2rem;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .product-name {
+      font-weight: 700;
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+      color: #222;
+    }
+
+    .product-price {
+      font-weight: 700;
+      color: #e63946;
+      font-size: 1.2rem;
+    }
+
+    .btn-buy {
+      margin-top: 1rem;
+      background-color: #e63946;
+      border: none;
+      color: white;
+      padding: padding: 0.75rem 1.5rem;
+
+      border-radius: 25px;
+      font-weight: 700;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .btn-buy:hover {
+      background-color: #a62633;
+    }
+
+    footer {
+      margin-top: 3rem;
+      background: #111;
+      color: #ccc;
+      text-align: center;
+      padding: 1rem 0;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 600px) {
+      .product-image {
+        height: 220px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  Fashion Store
+</header>
+
+<nav>
+  <a href="Dress.html">Home</a>
+  <a href="home.html">Shop</a>
+  <a href="collection.html">Collections</a>
+  <a href="contact.html">Contact</a>
+</nav>
+
+<main>
+  <h1>Shop Our Latest Collection</h1>
+  <div class="products-grid">
+    <div class="product-card">
+      <img class="product-image" src="kk.jpg" alt="Elegant Red Dress" />
+      <div class="product-info">
+        <div class="product-name">White Dress</div>
+        <div class="product-price">₹800</div>
+        <a class="btn-buy" href="file:///C:/Users/HWLAB-I/Desktop/Project1/Payment%20page/demo1.html">Buy Now</a>
+
+      </div>
+    </div>
+
+    <div class="product-card">
+      <img class="product-image" src="sm4.jpg" alt="Blue dress" />
+      <div class="product-info">
+        <div class="product-name">Blue dress</div>
+        <div class="product-price">₹425</div>
+              <a class="btn-buy" href="file:///C:/Users/HWLAB-I/Desktop/Project1/Payment%20page/demo1.html">Buy Now</a>
+    </a>
+
+
+      </div>
+    </div>
+
+    <div class="product-card">
+      <img class="product-image" src="sm6.png" alt="Summer Shirt" />
+      <div class="product-info">
+        <div class="product-name">Summer Shirt</div>
+        <div class="product-price">₹700</div>
+              <a class="btn-buy" href="file:///C:/Users/HWLAB-I/Desktop/Project1/Payment%20page/demo1.html">Buy Now</a>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <img class="product-image" src="sm8.jpg" alt="Stylish shirt" />
+      <div class="product-info">
+        <div class="product-name">Stylish shirt</div>
+        <div class="product-price">₹580</div>
+              <a class="btn-buy" href="file:///C:/Users/HWLAB-I/Desktop/Project1/Payment%20page/demo1.html">Buy Now</a>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <img class="product-image" src="sm3.jpg" alt="Fashion Dress" />
+      <div class="product-info">
+        <div class="product-name">Fashion Dress</div>
+        <div class="product-price">₹900</div>
+          <a class="btn-buy" href="file:///C:/Users/HWLAB-I/Desktop/Project1/Payment%20page/demo1.html">Buy Now</a>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <img class="product-image" src="k.jpg" alt="Classic Blazer" />
+      <div class="product-info">
+        <div class="product-name">Classic Blazer</div>
+        <div class="product-price">₹830</div>
+              <a class="btn-buy" href="file:///C:/Users/HWLAB-I/Desktop/Project1/Payment%20page/demo1.html">Buy Now</a>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <img class="product-image" src="k1.jpg" alt="Short kurti" />
+      <div class="product-info">
+        <div class="product-name">Short kurti</div>
+        <div class="product-price">₹540</div>
+             <a class="btn-buy" href="file:///C:/Users/HWLAB-I/Desktop/Project1/Payment%20page/demo1.html">Buy Now</a>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <img class="product-image" src="sm9.jpeg" alt="Modern coat" />
+      <div class="product-info">
+        <div class="product-name">Modern coat</div>
+        <div class="product-price">₹475</div>
+               <a class="btn-buy" href="file:///C:/Users/HWLAB-I/Desktop/Project1/Payment%20page/demo1.html">Buy Now</a>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <img class="product-image" src="sm11.jpg" alt="Anarkali kurti" />
+      <div class="product-info">
+        <div class="product-name">Anarkali kurti</div>
+        <div class="product-price">₹999</div>
+              <a class="btn-buy" href="file:///C:/Users/HWLAB-I/Desktop/Project1/Payment%20page/demo1.html">Buy Now</a>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <img class="product-image" src="sm12.jpg" alt="Round kurti" />
+      <div class="product-info">
+        <div class="product-name">Round kurti</div>
+        <div class="product-price">₹799</div>
+               <a class="btn-buy" href="file:///C:/Users/HWLAB-I/Desktop/Project1/Payment%20page/demo1.html">Buy Now</a>
+      </div>
+    </div>
+
+     <div class="product-card">
+      <img class="product-image" src="sm5.jpg" alt="Black shirt" />
+      <div class="product-info">
+        <div class="product-name">Black shirt</div>
+        <div class="product-price">₹579</div>
+             <a class="btn-buy" href="file:///C:/Users/HWLAB-I/Desktop/Project1/Payment%20page/demo1.html">Buy Now</a>
+      </div>
+    </div>
+
+     <div class="product-card">
+      <img class="product-image" src="sm7.jpg" alt="Stylish shirt" />
+      <div class="product-info">
+        <div class="product-name">Stylish shirt</div>
+        <div class="product-price">₹1000</div>
+         <a class="btn-buy" href="file:///C:/Users/HWLAB-I/Desktop/Project1/Payment%20page/demo1.html">Buy Now</a>
+      </div>
+    </div>
+  </div>
+</main>
+
+
+
+</body>
+</html>

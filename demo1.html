@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ShopEase - Payment</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f9f9f9;
+      display: flex;
+      justify-content: center;
+      padding: 40px 20px;
+      min-height: 100vh;
+    }
+
+    .payment-wrapper {
+      background: white;
+      max-width: 450px;
+      width: 100%;
+      border-radius: 10px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+      padding: 35px 30px;
+    }
+
+    h1 {
+      margin-bottom: 30px;
+      text-align: center;
+      color: #222;
+      font-weight: 700;
+      font-size: 1.8rem;
+    }
+
+    .payment-options {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 30px;
+      gap: 15px;
+    }
+
+    .payment-options input[type="radio"] {
+      display: none;
+    }
+
+    .payment-options label {
+      flex: 1;
+      cursor: pointer;
+      padding: 14px 10px;
+      border: 2px solid #ccc;
+      border-radius: 8px;
+      text-align: center;
+      font-weight: 600;
+      color: #555;
+      transition: all 0.3s ease;
+      user-select: none;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .payment-options label img {
+      max-width: 40px;
+      height: auto;
+    }
+
+    .payment-options input[type="radio"]:checked + label {
+      border-color: #c7271c;
+      background-color: #cc2c17;
+      color: white;
+      box-shadow: 0 6px 14px rgba(228, 61, 31, 0.4);
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+    }
+
+    label {
+      font-weight: 600;
+      margin-bottom: 6px;
+      color: #333;
+      font-size: 0.95rem;
+    }
+
+    input[type="text"],
+    input[type="tel"],
+    input[type="password"],
+    input[type="month"] {
+      padding: 12px 14px;
+      margin-bottom: 20px;
+      border-radius: 8px;
+      border: 1.8px solid #ccc;
+      font-size: 1rem;
+      transition: border-color 0.3s ease;
+    }
+
+    input:focus {
+      border-color: #d42525;
+      outline: none;
+    }
+
+    button {
+      background-color: #cf2b1f;
+      color: white;
+      font-weight: 700;
+      padding: 15px;
+      font-size: 1.1rem;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      margin-top: 10px;
+    }
+
+    button:hover {
+      background-color: #d63316;
+    }
+
+    .qr-code {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .qr-code img {
+      max-width: 160px;
+      border-radius: 15px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    .note {
+      font-size: 0.9rem;
+      color: #666;
+      margin-bottom: 15px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="payment-wrapper">
+    <h1>Complete Your Payment</h1>
+
+    <div class="payment-options" role="radiogroup" aria-label="Select payment method">
+      <input type="radio" id="card" name="payment" value="card" checked />
+      <label for="card" role="radio">
+        <img src="credit logo.jpg" alt="Credit Card Icon" />
+        Credit Card
+      </label>
+
+      <input type="radio" id="phonepe" name="payment" value="phonepe" />
+      <label for="phonepe" role="radio">
+        <img src="pay.jpg" alt="PhonePe Logo" />
+        PhonePe
+      </label>
+
+      <input type="radio" id="googlepay" name="payment" value="googlepay" />
+      <label for="googlepay" role="radio">
+        <img src="google logo.jpg" alt="Google Pay Logo" />
+        Google Pay
+      </label>
+    </div>
+
+    <form id="paymentForm" novalidate>
+      <!-- Credit Card Fields -->
+      <div id="cardFields">
+        <label for="cardName">Cardholder Name</label>
+        <input type="text" id="cardName" name="cardName" placeholder="abc" required autocomplete="cc-name" /><br>
+
+        <label for="cardNumber">Card Number</label>
+        <input type="text" id="cardNumber" name="cardNumber" placeholder="1234 5678 9012 3456" maxlength="19"
+               pattern="(?:\d{4} ){3}\d{4}" title="Format: 1234 5678 9012 3456" required autocomplete="cc-number" /><br>
+
+        <label for="expiry">Expiry Date</label>
+        <input type="month" id="expiry" name="expiry" required autocomplete="cc-exp" min="2023-01" /><br>
+
+        <label for="cvv">CVV</label>
+        <input type="password" id="cvv" name="cvv" placeholder="123" maxlength="4" pattern="\d{3,4}"
+               title="3 or 4 digit CVV" required autocomplete="cc-csc" /><br>
+      </div>
+
+      <!-- PhonePe Fields -->
+      <div id="phonepeFields" style="display:none;">
+        <div class="qr-code">
+          <p class="note">Scan this QR code in your PhonePe app to pay:</p>
+          <img src="code.png" alt="PhonePe QR" />
+        </div>
+        <label for="phonepeNumber">PhonePe Registered Phone Number</label>
+        <input type="tel" id="phonepeNumber" name="phonepeNumber" placeholder="+91 1234567890"
+               pattern="^\+?\d{10,13}$" title="Enter a valid phone number" autocomplete="tel" />
+      </div>
+
+      <!-- Google Pay Fields -->
+      <div id="googlepayFields" style="display:none;">
+        <div class="qr-code">
+          <p class="note">Scan this QR code in your Google Pay app to pay:</p>
+          <img src="code.png" alt="Google Pay QR" />
+        </div>
+        <label for="googlepayNumber">Google Pay Registered Phone Number</label>
+        <input type="tel" id="googlepayNumber" name="googlepayNumber" placeholder="+91 1234567890"
+               pattern="^\+?\d{10,13}$" title="Enter a valid phone number" autocomplete="tel" />
+      </div>
+
+      <button type="submit" aria-label="Submit payment">Pay Now</button>
+    </form>
+  </div>
+
+  <script>
+    const radios = document.querySelectorAll('input[name="payment"]');
+    const cardFields = document.getElementById('cardFields');
+    const phonepeFields = document.getElementById('phonepeFields');
+    const googlepayFields = document.getElementById('googlepayFields');
+    const form = document.getElementById('paymentForm');
+
+    function updatePaymentFields() {
+      const selected = document.querySelector('input[name="payment"]:checked').value;
+
+      cardFields.style.display = 'none';
+      phonepeFields.style.display = 'none';
+      googlepayFields.style.display = 'none';
+
+      [cardFields, phonepeFields, googlepayFields].forEach(section => {
+        section.querySelectorAll('input').forEach(input => input.required = false);
+      });
+
+      if (selected === 'card') {
+        cardFields.style.display = 'block';
+        cardFields.querySelectorAll('input').forEach(input => input.required = true);
+      } else if (selected === 'phonepe') {
+        phonepeFields.style.display = 'block';
+        phonepeFields.querySelectorAll('input').forEach(input => input.required = true);
+      } else if (selected === 'googlepay') {
+        googlepayFields.style.display = 'block';
+        googlepayFields.querySelectorAll('input').forEach(input => input.required = true);
+      }
+    }
+
+    radios.forEach(radio => {
+      radio.addEventListener('change', updatePaymentFields);
+    });
+
+    updatePaymentFields();
+
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+
+      if (!form.checkValidity()) {
+        form.reportValidity();
+        return;
+      }
+
+      const selectedPayment = document.querySelector('input[name="payment"]:checked').value;
+      alert('Payment method selected: ' + selectedPayment + '\nPayment processed successfully!');
+      form.reset();
+      updatePaymentFields();
+    });
+  </script>
+
+</body>
+</html>

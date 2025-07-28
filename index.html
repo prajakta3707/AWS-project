@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact Us</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet" />
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: linear-gradient(135deg, #74ebd5, #9face6);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    .contact-container {
+      background: white;
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+      max-width: 500px;
+      width: 100%;
+      text-align: center;
+    }
+
+    .contact-container img {
+      width: 80px;
+      margin-bottom: 20px;
+      border-radius: 50%;
+    }
+
+    .contact-container h2 {
+      margin-bottom: 10px;
+      font-weight: 600;
+      color: #333;
+    }
+
+    .contact-container p {
+      color: #666;
+      margin-bottom: 30px;
+    }
+
+    .contact-container input,
+    .contact-container textarea {
+      width: 100%;
+      padding: 15px;
+      margin-bottom: 20px;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      outline: none;
+      transition: 0.3s;
+    }
+
+    .contact-container input:focus,
+    .contact-container textarea:focus {
+      border-color: #74ebd5;
+      box-shadow: 0 0 5px rgba(116, 235, 213, 0.5);
+    }
+
+    .contact-container button {
+      background: #6a11cb;
+      background: linear-gradient(to right, #6a11cb, #2575fc);
+      color: white;
+      border: none;
+      padding: 15px 30px;
+      border-radius: 50px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: 0.3s ease;
+    }
+
+    .contact-container button:hover {
+      opacity: 0.9;
+    }
+
+    .social-icons {
+      margin-top: 30px;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .social-icons a img {
+      width: 40px;
+      transition: 0.3s ease;
+    }
+
+    .social-icons a:hover img {
+      transform: scale(1.2);
+    }
+
+    @media (max-width: 600px) {
+      .contact-container {
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="contact-container">
+    <img src="contact3 (1).jpg" alt="Contact Logo" />
+    <h2>Contact Us</h2>
+    <p>Have questions or need help? Send us a message.</p>
+
+    <!-- Updated form with redirect -->
+   <!-- Form with correct redirect to a relative image path -->
+<!-- Corrected form with working relative path -->
+<form onsubmit="event.preventDefault(); window.location.href='contact/thankyou.jpg';">
+  <input type="text" placeholder="Your Name" required />
+  <input type="email" placeholder="Your Email" required />
+  <textarea rows="4" placeholder="Your Message" required></textarea>
+  <button type="submit">Send Message</button>
+</form>
+>
+
+
+    <!-- Social media icons -->
+    <div class="social-icons">
+      <a href="mailto:sonalipujari@gmail.com" target="_blank" title="Gmail">
+        <img src="gmail1.png" alt="Gmail">
+      </a>
+      <a href="https://www.facebook.com/" target="_blank" title="Facebook">
+        <img src="facebook (1).png" alt="Facebook">
+      </a>
+      <a href="https://pay.google.com" target="_blank" title="Google Pay">
+        <img src="googlepay (1).jpg" alt="Google Pay">
+      </a>
+      <a href="https://www.instagram.com/" target="_blank" title="Instagram">
+        <img src="instagram (1).png" alt="Instagram">
+      </a>
+      <a href="https://wa.me/919999999999" target="_blank" title="WhatsApp">
+        <img src="whatsapp.jpg" alt="WhatsApp">
+      </a>
+    </div>
+  </div>
+</body>
+</html>
